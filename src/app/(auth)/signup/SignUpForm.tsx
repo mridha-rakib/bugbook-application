@@ -1,6 +1,7 @@
 "use client";
 
 import LoadingButton from "@/components/LoadingButton";
+import { PasswordInput } from "@/components/PasswordInput";
 import { signUpSchema, SignUpValues } from "@/lib/validation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -50,7 +51,20 @@ const SignUpForm = () => {
           )}
         />
 
-        <LoadingButton loading={isPending} type="submit" className="w-full">
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <PasswordInput placeholder="Password" {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+
+        <LoadingButton type="submit" className="mt-3 w-full">
           Create account
         </LoadingButton>
       </form>
