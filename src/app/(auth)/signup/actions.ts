@@ -2,7 +2,7 @@
 
 import { lucia } from "@/auth";
 import prisma from "@/lib/prisma";
-import streamServerClient from "@/lib/stream";
+// import streamServerClient from "@/lib/stream";
 import { signUpSchema, SignUpValues } from "@/lib/validation";
 import { isRedirectError } from "next/dist/client/components/redirect";
 import { generateIdFromEntropySize } from "lucia";
@@ -63,11 +63,6 @@ export async function signUp(
           email,
           passwordHash,
         },
-      });
-      await streamServerClient.upsertUser({
-        id: userId,
-        username,
-        name: username,
       });
     });
 

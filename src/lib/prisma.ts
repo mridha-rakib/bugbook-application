@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 const prismaClientSingleton = () => {
   return new PrismaClient();
 };
-
 /* eslint-disable no-var */
 declare global {
   var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>;
