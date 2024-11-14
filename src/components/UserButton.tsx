@@ -14,6 +14,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import UserAvatar from "./UserAvatar";
 
 interface UserButtonProps {
   className?: string;
@@ -22,5 +23,13 @@ interface UserButtonProps {
 export default function UserButton({ className }: UserButtonProps) {
   const { user } = useSession;
 
-  return <DropdownMenu> </DropdownMenu>;
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button>
+          <UserAvatar avatarUrl={user.avatarUrl} size={40} />
+        </button>
+      </DropdownMenuTrigger>{" "}
+    </DropdownMenu>
+  );
 }
