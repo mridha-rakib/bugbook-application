@@ -1,5 +1,6 @@
 import UserButton from "@/components/UserButton";
 import Link from "next/link";
+import SearchField from "@/components/SearchField";
 
 export default function Navbar() {
   return (
@@ -10,6 +11,7 @@ export default function Navbar() {
         </Link>
 
         <UserButton className="sm:ms-auto" />
+        <SearchField />
       </div>
     </header>
   );
