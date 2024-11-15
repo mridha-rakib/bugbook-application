@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { logout } from "@/app/(auth)/actions";
 import { useSession } from "@/app/(main)/SessionProvider";
-import { LogOutIcon, Monitor, Moon, Sun, UserIcon } from "lucide-react";
+import { Check, LogOutIcon, Monitor, Moon, Sun, UserIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,8 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-// import { useQueryClient } from "@tanstack/react-query";
+import { useTheme } from "next-themes";
+
 import UserAvatar from "./UserAvatar";
 
 interface UserButtonProps {
@@ -25,7 +26,7 @@ interface UserButtonProps {
 export default function UserButton({ className }: UserButtonProps) {
   const { user } = useSession();
 
-  // const queryClient = useQueryClient();
+  const { theme, setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -50,17 +51,20 @@ export default function UserButton({ className }: UserButtonProps) {
           </DropdownMenuSubTrigger>
           <DropdownMenuPortal>
             <DropdownMenuSubContent>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
                 <Monitor className="mr-2 size-4" />
                 System default
+                {theme === "system" && <Check className="ms-2 size-4" />}
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("light")}>
                 <Sun className="mr-2 size-4" />
                 Light
+                {theme === "light" && <Check className="ms-2 size-4" />}
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
                 <Moon className="mr-2 size-4" />
                 Dark
+                {theme === "dark" && <Check className="ms-2 size-4" />}
               </DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuPortal>
