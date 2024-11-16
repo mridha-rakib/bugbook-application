@@ -9,9 +9,8 @@ export default function Navbar() {
         <Link href="/" className="text-2xl font-bold text-primary">
           bugbook
         </Link>
-
-        <UserButton className="sm:ms-auto" />
         <SearchField />
+        <UserButton className="sm:ms-auto" />
       </div>
     </header>
   );

@@ -1,8 +1,12 @@
 "use client";
-import Link from "next/link";
+
 import { logout } from "@/app/(auth)/actions";
 import { useSession } from "@/app/(main)/SessionProvider";
+import { cn } from "@/lib/utils";
+
 import { Check, LogOutIcon, Monitor, Moon, Sun, UserIcon } from "lucide-react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +19,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { useTheme } from "next-themes";
-
 import UserAvatar from "./UserAvatar";
 
 interface UserButtonProps {
@@ -31,8 +33,8 @@ export default function UserButton({ className }: UserButtonProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button>
-          <UserAvatar avatarUrl={user?.avatarUrl} size={40} />
+        <button className={cn("flex-none rounded-full", className)}>
+          <UserAvatar avatarUrl={user.avatarUrl} size={40} />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
