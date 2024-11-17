@@ -33,7 +33,7 @@ export default async function MenuBar({ className }: MenuBarProps) {
       >
         <Link href="/notification">
           <Bell />
-          <span className="hidden lg:inline">Home</span>
+          <span className="hidden lg:inline">Notifications</span>
         </Link>
       </Button>
       <Button
