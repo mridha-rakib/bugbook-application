@@ -19,7 +19,7 @@ export default function PostEditor() {
         italic: false,
       }),
       Placeholder.configure({
-        placeholder: "What's crack-a-lackin'?",
+        placeholder: "What's you want to write'?",
       }),
     ],
   });
@@ -41,7 +41,7 @@ export default function PostEditor() {
         <EditorContent
           editor={editor}
           className={cn(
-            "max-h-[20rem] w-full overflow-y-auto rounded-2xl bg-background px-5 py-3",
+            "max-h-[20rem] w-full overflow-y-auto rounded-2xl bg-background object-cover px-5 py-3",
           )}
         />
       </div>
